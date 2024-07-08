@@ -1,11 +1,13 @@
-<br>![image1](images/image1.png)<br>
+I've checked for spelling mistakes and ensured that the text is clear and concise. Here is the revised version:
+
+---
 
 ## Configuring MERN Stack on Your Local Machine Using GitHub and Daytona
 
 ### Introduction
-Managing infrastructure to ensure smooth project delivery often involves overcoming several obstacles, particularly during the development environment setup. Frequent setup issues can disrupt developers' ability to maintain consistent, repeatable, and easily deployable workspaces across various platforms. This blog explores how Daytona streamlines Development Environment Management (DEM), providing developers with reliable workspaces free from common complications. We demonstrate how to replicate a fundamental MERN stack repository from GitHub locally using Daytona.
+Managing infrastructure to ensure smooth project delivery often involves overcoming several obstacles, particularly during the development environment setup. Frequent setup issues can disrupt developers' ability to maintain consistent, repeatable, and easily deployable workspaces across various platforms. This guide explores how Daytona streamlines Development Environment Management (DEM), providing developers with reliable workspaces free from common complications. We demonstrate how to replicate a fundamental MERN stack repository from GitHub locally using Daytona.
 
-### Technologis used
+### Technologies used
 
 #### Backend
 - **Express**: A minimalist web framework for Node.js to create robust APIs.
@@ -19,45 +21,57 @@ Managing infrastructure to ensure smooth project delivery often involves overcom
 - **React**: A JavaScript library for building user interfaces.
 - **Recoil**: A state management library for React applications.
 - **Axios**: A promise-based HTTP client for making API requests.
-- **Vite**: A build tool that provides fast development server and optimized builds.
+- **Vite**: A build tool that provides a fast development server and optimized builds.
 - **TailwindCSS**: A utility-first CSS framework for quickly designing responsive and modern layouts.
 
-### Setting up the repository without Daytona
+### Setting up the project without Daytona
 
-In this section, we will set up this repository locally without Daytona, After you have successfully cloned the repository locally.
+In this section, we will set up this repository locally without Daytona, after you have successfully cloned the repository.
 
 #### Prerequisites
 Make sure you have Node.js installed on your machine. You can download it from [Node.js official website](https://nodejs.org/).
 
-#### Step 1: How to Start the Backend Server
-- Navigate to the `backend` directory and run:
-```bash
-npm install
-```
-- Create a `.env` file in the `backend` directory and write in it:
-```
-MONGO_URI="Your Database Connection String"
-```
-Replace `Your Database Connection String` with your actual database URI.
+#### Step 1: Clone the Git Repository Locally
+- Open your terminal or command prompt and clone the repository using the following command:
+  ```bash
+  git clone <repository_url>
+  ```
 
-- In the `backend` directory, run:
-```bash
-npm run dev
-```
-#### Step 2: How to Start the Frontend
-- Navigate to the `frontend` directory and run:
-```bash
-npm install
-```
-- Create a `.env` file in the `frontend` directory and write in it:
-```
-VITE_BACKEND_URL="http://localhost:8000/api/customers/"
-```
-- In the `frontend` directory, run:
-```bash
-npm run dev
-```
-Your React app should be up and running.
+#### Step 2: Install Node.js
+- To check if Node.js is installed, open a terminal or command prompt and run:
+  ```bash
+  node --version
+  ```
+- If Node.js is not installed on your machine, download it from [Node.js official website](https://nodejs.org/) and follow the installation instructions specific to your operating system.
+
+#### Step 3: How to Start the Backend Server
+- Navigate to the `backend` directory within the cloned repository and run:
+  ```bash
+  npm install
+  ```
+- Create a `.env` file in the `backend` directory and add the following line:
+  ```
+  MONGO_URI="Your Database Connection String"
+  ```
+- Start the backend server by running:
+  ```bash
+  npm run dev
+  ```
+
+#### Step 4: How to Start the Frontend
+- Navigate to the `frontend` directory within the cloned repository and run:
+  ```bash
+  npm install
+  ```
+- Create a `.env` file in the `frontend` directory and add the following line:
+  ```
+  VITE_BACKEND_URL="http://localhost:8000/api/customers/"
+  ```
+- Start the frontend development server by running:
+  ```bash
+  npm run dev
+  ```
+  Your React app should now be up and running.
 
 ### Problems with Conventional Setup
 
@@ -78,9 +92,11 @@ Daytona automates the entire process, addressing these issues effectively:
 - **Reproducible Environments**: Uses OCI containers and supports Dev Container standards, ensuring consistency.
 - **Cross-Platform Support**: Works on Linux, macOS, and Windows, supporting x86-64 and AArch64 architectures.
 
-### Setting up the repository without Daytona
+### Setting up the project using Daytona
+
 #### Step 1: Install Daytona
 - Ensure Docker is installed and running, then execute:
+
 ##### For Windows
 - Run the following script in PowerShell:
 ```powershell
@@ -96,27 +112,21 @@ $env:Path += ";" + $Env:APPDATA + "\bin\daytona"; [Environment]::SetEnvironmentV
 (curl -sf -L https://download.daytona.io/daytona/install.sh | sudo bash) && daytona server -y && daytona
 ```
 - Alternatively, you can use Homebrew or Nix for installation. Refer to the official installation guide for more options.
+<br>![image1](images/image2.png)<br>
 
 #### Step 2: Configure GitHub as a Git Provider
 
-- Add a New Git Provider:
+- Add a New Git Provider and select GitHub from the list.
 ```sh
 daytona git-providers add
 ```
-- Select GitHub from the list.
-
 - Enter GitHub Personal Access Token
-Generate a token, if you do not have one following [this guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and enter it when prompted.
+Generate a token, if you do not have one, by following [this guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and enter it when prompted.
 
 #### Step 3: Install a Provider
-- Run the following command.
+- Run the following command and select the Default Docker Provider.
 ```sh
 daytona provider install
-```
-- Select the Default Docker Provider.
-- Check if the provider is installed:
-```sh
-daytona provider list
 ```
 
 #### Step 4: Set a Target
@@ -127,8 +137,7 @@ daytona target set
 ```
 - Select the Docker provider and set the default local Docker target. Specify the sock path as `/var/run/docker.sock`.
 
-- Verify the Target by executing th following command:
-
+- Verify the Target by executing the following command:
 ```sh
 daytona target list
 ```
@@ -148,34 +157,113 @@ daytona create
 daytona create <Git URL>
 ```
 
-#### Step 5: Set a Preferred IDE
-- Execute the following command:
+#### Step 6: Set a Preferred IDE
+- Execute the following command and choose Visual Studio Code for now.
 ```sh
 daytona ide
 ```
-- Choose your preferred IDE, for now choose Visual Studio Code.
 
-#### Step 6: Open the Workspace
+#### Step 7: Open the Workspace
 
 - Choose a Workspace:
 ```sh
 daytona code
 ```
 - Rebuild the Container:
-**Pre-requisite:** You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code
-In Coomand pallet of Visual Studio Code, type "Rebuild and Reopen in Container".
+**Pre-requisite:** You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code.
+In the Command Palette of Visual Studio Code, type "Rebuild and Reopen in Container".
+<br>![image1](images/image11.png)<br>
 
 - Start the Development Servers:
 
 **Backend**
-- Navigate to the backend directory and run:
+- Navigate to the backend directory and create a `.env` file in the `backend` directory and add the following line:
+  ```
+  MONGO_URI="Your Database Connection String"
+  ```
+- Execute the following command to start the backend server:
 ```sh
 npm run dev
 ```
 **Frontend**
-- Navigate to the frontend directory and run:
+- Navigate to the frontend directory and create a `.env` file in the `frontend` directory and add the following line:
+  ```
+  VITE_BACKEND_URL="http://localhost:8000/api/customers/"
+  ```
+- Execute the following command to start the frontend server:
 ```sh
 npm run dev
 ```
-
 With Daytona, the setup process is simplified and automated, ensuring consistent and secure development environments, enabling you to focus on coding.
+
+### How Daytona Simplifies Development Environments
+
+Daytona streamlines the process of setting up development environments by automatically creating a `.devcontainer` folder. This folder contains configuration files that ensure all necessary dependencies and plugins are installed and configured correctly, providing a consistent and hassle-free setup.
+
+#### The `.devcontainer` Folder and `devcontainer.json`
+
+The `.devcontainer` folder includes a `devcontainer.json` file that specifies the configuration for the development environment. This file covers the base image, workspace folder settings, port forwarding, and additional customizations.
+
+#### `devcontainer.json` Configuration
+
+Here are the details of the `devcontainer.json` file used in this project:
+
+```json
+{
+    "name": "Node.js, Express, React, MongoDB & Tailwind",
+    "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:20",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "portsAttributes": {
+        "5174": {
+            "label": "Frontend",
+            "onAutoForward": "openPreview"
+        },
+        "8000": {
+            "label": "Backend",
+            "onAutoForward": "openPreview"
+        },
+        "27017": {
+            "label": "MongoDB",
+            "onAutoForward": "ignore"
+        }
+    },
+    "custom
+
+izations": {
+        "vscode": {
+            "extensions": [
+                "mongodb.mongodb-vscode",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "davidanson.vscode-markdownlint"
+            ]
+        }
+    },
+    "postCreateCommand": "echo 'package-import-method=clone-or-copy' >> ~/.npmrc && npm install -g npm@10.8.1 nodemon && cd backend && npm install --unsafe-perm && cd ../frontend && npm install --unsafe-perm",
+    "remoteUser": "root"
+}
+```
+
+#### Key Features
+
+##### Base Image
+- Uses `mcr.microsoft.com/vscode/devcontainers/javascript-node:20` for a consistent environment.
+
+##### Workspace Folder
+- Maps the local workspace folder to the container.
+
+##### Port Forwarding
+- Configures ports for frontend, backend, and MongoDB services with specific labels and behaviors.
+
+##### Customizations
+- Installs essential Visual Studio Code extensions automatically:
+  - MongoDB, ESLint, Prettier, Tailwind CSS, and Markdown linting.
+
+##### Post Create Command
+- Runs commands after container creation to set npm configurations and install dependencies for both backend and frontend.
+
+##### Remote User
+- Sets the user to `root` for necessary permissions, which can be adjusted as needed.
+
+By leveraging the `.devcontainer` folder and `devcontainer.json` file created by Daytona, developers can enjoy a consistent, automated, and fully-featured development environment, allowing them to focus on coding.
