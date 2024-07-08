@@ -224,7 +224,7 @@ Here are the details of the devcontainer.json file used in this project:
 You can find this devcontainer.json file inside .devcontainer folder in root directory
 #### Step 2: Rebuild the container.
 - Rebuild and reopen in container.<br>
-Pre-requisite: You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code.<br>
+**Pre-requisite:** You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code.<br>
 In the command panel, type `rebuild and reopen in container` and wait for all the processes to complete. Now you can start the development process as usual.<br>
 <br>![image1](images/image11.png)<br>
 - Navigate to the backend directory and execute the following command:
