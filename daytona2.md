@@ -7,20 +7,17 @@ Managing infrastructure to ensure smooth project delivery often involves overcom
 
 
 ### Technologies used
+In the project that we are using for this guide, `Express` provides a web framework for creating robust APIs, and `MongoDB` serves as a NoSQL database for efficient data storage and retrieval. `React` is used to build user interfaces. `Vite` provides a fast development server and optimized builds. `TailwindCSS`, a utility-first CSS framework, is used for quickly designing responsive and modern layouts. Other technologies used are:
 
-#### Backend Libraries and Frameworks
-For the backend, `Express` provides a web framework for creating robust APIs, and `MongoDB` serves as a NoSQL database for efficient data storage and retrieval. `Mongoose` simplifies data modeling and validation for MongoDB, while `CORS` middleware enables Cross-Origin Resource Sharing for the backend API. The `Dotenv` module is used to load environment variables from a .env file into process.env, and Nodemon automatically restarts the Node.js application when file changes are detected.
-
-
-#### Frontend Libraries and Frameworks
-On the frontend, `React` is used to build user interfaces, and `Recoil` manages the state of React applications. `Axios` is a promise-based HTTP client for making API requests, and `Vite` provides a fast development server and optimized builds. `TailwindCSS`, a utility-first CSS framework, is used for quickly designing responsive and modern layouts.
-
-
-### Setting up the project without Daytona
+- **CORS** middleware enables Cross-Origin Resource Sharing for the backend API.
+- **Dotenv** module loads environment variables from a .env file into process.env.
+- **Nodemon** automatically restarts the Node.js application when file changes are detected.
+- **Recoil** manages the state of React applications.
+- **Axios** is a promise-based HTTP client for making API requests.
 
 
-In this section, we will set up this repository locally.
-
+### Setting up the project locally:
+In this section we'll walk you through setting up the MERN (MongoDB, Express.js, React.js, Node.js) project locally using Git version control and Node.js runtime environment.
 
 #### Step 1: Clone the Git Repository Locally
 - Open your terminal or command prompt and clone the repository locally using the following command. Alternatively, you can download the zip file and extract its contents.
@@ -28,8 +25,7 @@ In this section, we will set up this repository locally.
 git clone <repository_url>
 ```
 #### Step 2: Install Node.js on your machine:
-Node.js is the javascript runtime 
-- To check if Node.js is installed, open a terminal or command prompt and run:
+- Node.js is a runtime environment that lets you execute JavaScript code outside of a web browser. To see if Node.js is installed on your machine, open a terminal or command prompt and enter the following command. This will display the installed version of Node.js.
 ```bash
 node --version
 ```
