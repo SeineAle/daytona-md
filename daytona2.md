@@ -5,31 +5,20 @@
 Managing infrastructure to ensure smooth project delivery often involves overcoming numerous obstacles, particularly during the development environment setup. Frequent setup issues can hinder developers' ability to maintain consistent, repeatable, and easily deployable workspaces across various platforms. This guide examines how Daytona simplifies Development Environment Management (DEM), offering developers reliable workspaces that avoid common complications. It contrasts how to replicate a simple MERN stack repository locally from GitHub with and without Daytona.
 
 ### Technologies used
-- **Daytona**
-- **Docker**
-- **Node.js**
+`Daytona` and `Docker` are employed for automating development environment management. Node.js serves as the runtime environment for executing JavaScript code on the server side.
 
 #### Backend Libraries and Frameworks
-- **Express**: A minimalist web framework for Node.js to create robust APIs.
-- **MongoDB**: A NoSQL database for storing and retrieving data efficiently.
-- **Mongoose**: An ODM library for MongoDB, simplifying data modeling and validation.
-- **Cors**: Middleware to enable Cross-Origin Resource Sharing for the backend API.
-- **Dotenv**: Module to load environment variables from a `.env` file into `process.env`.
-- **Nodemon**: A tool that automatically restarts the Node.js application when file changes are detected.
+For the backend, `Express` provides a web framework for creating robust APIs, and `MongoDB` serves as a NoSQL database for efficient data storage and retrieval. `Mongoose` simplifies data modeling and validation for MongoDB, while `CORS` middleware enables Cross-Origin Resource Sharing for the backend API. The `Dotenv` module is used to load environment variables from a .env file into process.env, and Nodemon automatically restarts the Node.js application when file changes are detected.
 
 #### Frontend Libraries and Frameworks
-- **React**: A JavaScript library for building user interfaces.
-- **Recoil**: A state management library for React applications.
-- **Axios**: A promise-based HTTP client for making API requests.
-- **Vite**: A build tool that provides a fast development server and optimized builds.
-- **TailwindCSS**: A utility-first CSS framework for quickly designing responsive and modern layouts.
+On the frontend, `React` is used for building user interfaces, and `Recoil` manages the state of React applications. `Axios` is a promise-based HTTP client for making API requests, and `Vite` provides a fast development server and optimized builds. `TailwindCSS`, a utility-first CSS framework, is used for quickly designing responsive and modern layouts.
 
 ### Setting up the project without Daytona
 
 In this section, we will set up this repository locally without Daytona.
 
 #### Step 1: Clone the Git Repository Locally
-- Open your terminal or command prompt and clone the repository using the following command:
+- Open your terminal or command prompt and clone the repository locally using the following command. Alternatively, you can download the zip file and extract its contents.
 ```bash
 git clone <repository_url>
 ```
@@ -42,24 +31,18 @@ node --version
 
 - Adding Node.js to the system path
 
-  **Windows**
-  - Open the Settings and search for "Environment Variables".
-  - Click on the "Environment Variables" button.
-  - Select the "Path" variable.
-  - Click on the "Edit" button.
-  - In the Edit Environment Variable screen, click the "New" button.
-  - Add an entry: `.\node_modules\.bin`.
+  **Windows:** Open the Settings and search for `Environment Variables`. Click on the `Environment Variables` button and select the `Path` variable. Click on the "Edit" button and add an entry: `.\node_modules\.bin`.
 
   **Linux / MacOS:** execute the following command:
 ```bash
 export PATH=$PATH:/usr/local/nodejs/bin
 ```
 #### Step 3: How to Start the Backend Server
-- Navigate to the `backend` directory within the cloned repository and run:
+- Open your terminal or command prompt. Use the `cd` command to navigate to the `backend` directory within the cloned repository and run the following command to install all necessary dependencies:
 ```bash
 npm install
 ```
-- Create a `.env` file in the `backend` directory and add the following line:
+- Create a `.env` file in the `backend` directory and add the following line int it. Change "Your Database Connection String" with real MongoDB connection uri.
 ```
 MONGO_URI="Your Database Connection String"
 ```
@@ -69,7 +52,7 @@ npm run dev
 ```
 
 #### Step 4: How to Start the Frontend
-- Navigate to the `frontend` directory within the cloned repository and run:
+- Open your terminal or command prompt. Use the `cd` command to navigate to the `frontend` directory within the cloned repository and run the following command to install all necessary dependencies:
 ```bash
 npm install
 ```
@@ -85,26 +68,22 @@ npm run dev
 
 ### Problems with Conventional Setup
 
-- **Dependency Management**: Conflicts, version mismatches, and inconsistencies.
-- **Time Consumption**: Diverts focus from coding to setup tasks.
-- **Collaboration Difficulties**: Ensuring consistent environments across team members.
-- **Security Risks**: Vulnerabilities in manually configuring secure access and VPNs
+- **Dependency Management**: Traditional setups often face issues where different projects require conflicting versions of dependencies or libraries. Resolving these conflicts manually can be time-consuming and error-prone.<br><br>
+- **Time Consumption**: Setting up development environments manually can consume valuable time that developers could otherwise spend on actual coding and development tasks.<br><br>
+- **Collaboration Difficulties**: Maintaining consistency across team members' development environments can be challenging. Differences in operating systems, configurations, or installed software versions can lead to compatibility issues.
 
 ### How Daytona Helps
 
 Daytona automates the entire process, addressing these issues effectively:
 
-- **Automated Provisioning**: Automatically provisions and configures environments.
-- **Prebuilds and Secure Connections**: Sets up prebuilds and secure VPN connections.
-- **Seamless IDE Integration**: Connects securely to local or Web IDEs like Visual Studio Code and IntelliJ IDEA
-- **Easy Sharing and Collaboration**: Assigns a fully qualified domain name for easy sharing.
-- **Reproducible Environments**: Uses OCI containers and supports Dev Container standards, ensuring consistency.
-- **Cross-Platform Support**: Works on Linux, macOS, and Windows, supporting x86-64 and AArch64 architectures.
-
+- **Automated Provisioning**: Daytona automates the provisioning and configuration of development environments. This includes setting up necessary dependencies, libraries, and tools based on project requirements, reducing the likelihood of conflicts and mismatches.<br><br>
+- **Seamless IDE Integration**: Daytona seamlessly integrates with popular integrated development environments (IDEs) such as Visual Studio Code and IntelliJ IDEA. Developers can securely connect to these IDEs and work within their familiar coding environments.<br><br>
+- **Easy Sharing and Collaboration with Cross-Platform Support**: Daytona enhances collaboration through robust cross-platform support, ensuring seamless sharing across team members and stakeholders. It accommodates diverse operating systems like Linux, macOS, and Windows, supporting both x86-64 and AArch64 architectures. 
 ### Setting up the project using Daytona
 
 #### Step 1: Install Daytona
-- Ensure Docker is installed and running, then execute:
+Daytona’s functionality is exposed through a command-line tool that runs on Linux, macOS, and Windows systems, on both x86-64 and AArch64 architectures.
+  Pre-requisites: Ensure Docker is installed and running.
 
 ##### For Windows
 - Run the following script in PowerShell:
@@ -120,71 +99,56 @@ $env:Path += ";" + $Env:APPDATA + "\bin\daytona"; [Environment]::SetEnvironmentV
 ```sh
 (curl -sf -L https://download.daytona.io/daytona/install.sh | sudo bash) && daytona server -y && daytona
 ```
-- Alternatively, you can use Homebrew or Nix for installation. Refer to the official installation guide for more options.
+Alternatively, you can use Homebrew or Nix for installation. Refer to the official installation guide for more options.
+After executing the official installation script for your respective operating system, Daytona will get installed locally on your machine and daytona server will start running.<br>
 <br>![image1](images/image2.png)<br>
 
 #### Step 2: Configure GitHub as a Git Provider
 
-- Add a New Git Provider and select GitHub from the list.
+- Add a New Git Provider using the following command and select GitHub from the list. Enter GitHub Personal Access Token. Generate a token if you do not have one, by following [this guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and enter it when prompted.<br>
 ```sh
 daytona git-providers add
 ```
-- Enter GitHub Personal Access Token
-Generate a token, if you do not have one, by following [this guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and enter it when prompted.
-
 #### Step 3: Install a Provider
-- Run the following command and select the Default Docker Provider.
+Provider is a plugin that interfaces with the Daytona Server, responsible for Workspace deployment and lifecycle management. After installation, Daytona creates a default Provider for Docker `dytona-provider-docker`. 
+- To install a provider, run the following command and select the Default Docker Provider.<br>
 ```sh
 daytona provider install
 ```
 
 #### Step 4: Set a Target
-
-- Set a New Target:
+Target is a set of configuration that governs how Daytona manages and deploys Workspaces. Each Target is tied to an individual Provider. When installing Daytona, A default Target using the Docker Provider is also added, which uses your local installation of Docker to deploy Workspaces. 
+- To set a New Target, execute yhe following command:<br>
 ```sh
 daytona target set
 ```
-- Select the Docker provider and set the default local Docker target. Specify the sock path as `/var/run/docker.sock`.
-
-- Verify the Target by executing the following command:
+- Select the Docker provider and set the default local Docker target. Specify the sock path as `/var/run/docker.sock`. Verify the Target by executing the following command:<br>
 ```sh
 daytona target list
 ```
 
 #### Step 5: Create a Workspace
-
-##### From GitHub
-- Execute the following command:
+- initiate the process by executing the following command. Opt for GitHub and select a repository, or alternatively, create a Workspace using any Git URL by specifying your remote repository's URL.<br>
 ```sh
 daytona create
 ```
-- Select GitHub and choose a repository. Name your workspace.
 
-##### From a Git URL
-- Execute the following command:
-```sh
-daytona create <Git URL>
-```
+#### Step 6: Set a Preferred IDE and Open the Workspace
 
-#### Step 6: Set a Preferred IDE
-- Execute the following command to list all the supported IDEs.
+- To set up your preferred IDE, list all supported IDEs using the following command and select from them. For this guide we will use Visual Studio Code.<br>
 ```sh
 daytona ide
 ```
-- We will focus on Visual Studio Code for now.
-
-#### Step 7: Open the Workspace
-
-- Choose a Workspace by executing following command:
+- Once you've selected your preferred IDE, open the Workspace by executing the following command. This will list all existing workspaces. Select the desired workspace, and it will open in your chosen IDE.<br>
 ```sh
 daytona code
 ```
-#### Step 8: Rebuild and Reopen in container
+#### Step 7: Rebuild and Reopen in container
 **Pre-requisite:** You must have Microsoft's Dev Containers extension preinstalled in Visual Studio Code.<br>
 - press `ctrl + shift + p` and choose "Dev Containers: Rebuild and Reopen in Container".<br>
 <br>![image1](images/image11.png)<br>
 
-#### Step 9: Start the Development Servers
+#### Step 8: Start the Development Servers
 
 **Backend**
 - Navigate to the backend directory and create a `.env` file in the `backend` directory and add the following line:
@@ -204,7 +168,6 @@ VITE_BACKEND_URL="http://localhost:8000/api/customers/"
 ```sh
 npm run dev
 ```
-We saw how Daytona simplifies and automates the setup process, ensuring consistent and secure development environments, thereby streamlining and reducing the complexities of development.
 
 ### How Daytona Simplifies Development Environments
 
@@ -276,4 +239,5 @@ Here are the details of the `devcontainer.json` file used in this project:
 
 By leveraging the `.devcontainer` folder and `devcontainer.json`, developers can enjoy a consistent, automated, and fully-featured development environment, allowing them to focus on coding.
 
-
+### Conclusion
+By following this guide, you have learned to set up a MERN stack project both with and without Daytona. The conventional method often faces challenges such as dependency management, time consumption, and collaboration difficulties. Daytona simplifies this process through automated provisioning, seamless IDE integration, and robust cross-platform support. By automating environment setup, Daytona ensures consistency, streamlines workflows, and improves collaboration. Embracing Daytona for development environment management reduces setup time, minimizes errors, and enhances productivity.
