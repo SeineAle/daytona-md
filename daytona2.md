@@ -1,7 +1,3 @@
-I've checked for spelling mistakes and ensured that the text is clear and concise. Here is the revised version:
-
----
-
 ## Configuring MERN Stack on Your Local Machine Using GitHub and Daytona
 
 ### Introduction
