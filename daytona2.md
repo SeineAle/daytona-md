@@ -42,7 +42,7 @@ export PATH=$PATH:/usr/local/nodejs/bin
 ```bash
 npm install
 ```
-- Create a `.env` file in the `backend` directory and add the following line int it. Change "Your Database Connection String" with real MongoDB connection uri.
+- Create a `.env` file in the `backend` directory and add the following line in it. Change "Your Database Connection String" with real MongoDB connection uri.
 ```
 MONGO_URI="Your Database Connection String"
 ```
