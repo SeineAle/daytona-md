@@ -126,13 +126,13 @@ daytona target set
 ```sh
 daytona target list
 ```
-
+<br>![image1](images/image7.png)<br>
 #### Step 5: Create a Workspace
 - initiate the process by executing the following command. Opt for GitHub and select a repository, or alternatively, create a Workspace using any Git URL by specifying your remote repository's URL.<br>
 ```sh
 daytona create
 ```
-
+<br>![image1](images/image10.png)<br>
 #### Step 6: Set a Preferred IDE and Open the Workspace
 
 - To set up your preferred IDE, list all supported IDEs using the following command and select from them. For this guide we will use Visual Studio Code.<br>
