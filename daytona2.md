@@ -9,7 +9,7 @@ Managing infrastructure to ensure smooth project delivery often involves overcom
 - **Docker**
 - **Node.js**
 
-#### Backend Libraries
+#### Backend Libraries and Frameworks
 - **Express**: A minimalist web framework for Node.js to create robust APIs.
 - **MongoDB**: A NoSQL database for storing and retrieving data efficiently.
 - **Mongoose**: An ODM library for MongoDB, simplifying data modeling and validation.
@@ -17,7 +17,7 @@ Managing infrastructure to ensure smooth project delivery often involves overcom
 - **Dotenv**: Module to load environment variables from a `.env` file into `process.env`.
 - **Nodemon**: A tool that automatically restarts the Node.js application when file changes are detected.
 
-#### Frontend Libraries
+#### Frontend Libraries and Frameworks
 - **React**: A JavaScript library for building user interfaces.
 - **Recoil**: A state management library for React applications.
 - **Axios**: A promise-based HTTP client for making API requests.
@@ -33,7 +33,6 @@ In this section, we will set up this repository locally without Daytona.
 ```bash
 git clone <repository_url>
 ```
-
 #### Step 2: Install Node.js
 - To check if Node.js is installed, open a terminal or command prompt and run:
 ```bash
@@ -41,6 +40,20 @@ node --version
 ```
 - If Node.js is not installed on your machine, download it from [Node.js official website](https://nodejs.org/) and follow the installation instructions specific to your operating system.
 
+- Adding Node.js to the system path
+
+  **Windows**
+  - Open the Settings and search for "Environment Variables".
+  - Click on the "Environment Variables" button.
+  - Select the "Path" variable.
+  - Click on the "Edit" button.
+  - In the Edit Environment Variable screen, click the "New" button.
+  - Add an entry: `.\node_modules\.bin`.
+
+  **Linux / MacOS:** execute the following command:
+```bash
+export PATH=$PATH:/usr/local/nodejs/bin
+```
 #### Step 3: How to Start the Backend Server
 - Navigate to the `backend` directory within the cloned repository and run:
 ```bash
@@ -154,7 +167,7 @@ daytona create <Git URL>
 ```
 
 #### Step 6: Set a Preferred IDE
-- Execute the following command to list all th supported IDEs.
+- Execute the following command to list all the supported IDEs.
 ```sh
 daytona ide
 ```
@@ -166,9 +179,9 @@ daytona ide
 ```sh
 daytona code
 ```
-#### Step 8: Rebuild and reopen in container
-**Pre-requisite:** You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code.<br>
-- press `ctrl + shift + p` and choose "Rebuild and Reopen in Container".<br>
+#### Step 8: Rebuild and Reopen in container
+**Pre-requisite:** You must have Microsoft's Dev Containers extension preinstalled in Visual Studio Code.<br>
+- press `ctrl + shift + p` and choose "Dev Containers: Rebuild and Reopen in Container".<br>
 <br>![image1](images/image11.png)<br>
 
 #### Step 9: Start the Development Servers
@@ -263,12 +276,4 @@ Here are the details of the `devcontainer.json` file used in this project:
 
 By leveraging the `.devcontainer` folder and `devcontainer.json`, developers can enjoy a consistent, automated, and fully-featured development environment, allowing them to focus on coding.
 
-### Advantages of Daytona Over Docker
 
-While Docker is a powerful tool for containerization, Daytona offers several advantages specifically for development environments:
-
-- **Integrated Development Experience:**
-   Daytona integrates directly with Visual Studio Code, providing a seamless and enhanced development experience. The `devcontainer.json` file ensures that all necessary extensions and settings are applied automatically.
-
--  **Simplified Configuration:**
-   Daytona’s `.devcontainer` approach abstracts much of the complexity involved in setting up and managing Docker configurations. It simplifies the setup by providing a structured and easy-to-understand configuration file that handles all aspects of the development environment.
