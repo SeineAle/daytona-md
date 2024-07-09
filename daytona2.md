@@ -30,44 +30,44 @@ In this section, we will set up this repository locally without Daytona.
 
 #### Step 1: Clone the Git Repository Locally
 - Open your terminal or command prompt and clone the repository using the following command:
-  ```bash
-  git clone <repository_url>
-  ```
+```bash
+git clone <repository_url>
+```
 
 #### Step 2: Install Node.js
 - To check if Node.js is installed, open a terminal or command prompt and run:
-  ```bash
-  node --version
-  ```
+```bash
+node --version
+```
 - If Node.js is not installed on your machine, download it from [Node.js official website](https://nodejs.org/) and follow the installation instructions specific to your operating system.
 
 #### Step 3: How to Start the Backend Server
 - Navigate to the `backend` directory within the cloned repository and run:
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 - Create a `.env` file in the `backend` directory and add the following line:
-  ```
-  MONGO_URI="Your Database Connection String"
-  ```
+```
+MONGO_URI="Your Database Connection String"
+```
 - Start the backend server by running:
-  ```bash
-  npm run dev
-  ```
+```bash
+npm run dev
+```
 
 #### Step 4: How to Start the Frontend
 - Navigate to the `frontend` directory within the cloned repository and run:
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 - Create a `.env` file in the `frontend` directory and add the following line:
-  ```
-  VITE_BACKEND_URL="http://localhost:8000/api/customers/"
-  ```
+```
+VITE_BACKEND_URL="http://localhost:8000/api/customers/"
+```
 - Start the frontend development server by running:
-  ```bash
-  npm run dev
-  ```
+```bash
+npm run dev
+```
   Your React app should now be up and running.
 
 ### Problems with Conventional Setup
@@ -167,26 +167,26 @@ daytona ide
 daytona code
 ```
 #### Step 8: Rebuild and reopen in container
-**Pre-requisite:** You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code.
-press `ctrl + shift + p` and choose "Rebuild and Reopen in Container".
+**Pre-requisite:** You must have Microsoft's Devcontainer extension preinstalled in Visual Studio Code.<br>
+- press `ctrl + shift + p` and choose "Rebuild and Reopen in Container".<br>
 <br>![image1](images/image11.png)<br>
 
 #### Step 9: Start the Development Servers
 
 **Backend**
 - Navigate to the backend directory and create a `.env` file in the `backend` directory and add the following line:
-  ```
-  MONGO_URI="Your Database Connection String"
-  ```
+```
+MONGO_URI="Your Database Connection String"
+```
 - Execute the following command to start the backend server:
 ```sh
 npm run dev
 ```
 **Frontend**
 - Navigate to the frontend directory and create a `.env` file in the `frontend` directory and add the following line:
-  ```
-  VITE_BACKEND_URL="http://localhost:8000/api/customers/"
-  ```
+```
+VITE_BACKEND_URL="http://localhost:8000/api/customers/"
+```
 - Execute the following command to start the frontend server:
 ```sh
 npm run dev
@@ -267,8 +267,8 @@ By leveraging the `.devcontainer` folder and `devcontainer.json`, developers can
 
 While Docker is a powerful tool for containerization, Daytona offers several advantages specifically for development environments:
 
-1. **Integrated Development Experience:**
-   - Daytona integrates directly with Visual Studio Code, providing a seamless and enhanced development experience. The `devcontainer.json` file ensures that all necessary extensions and settings are applied automatically.
+- **Integrated Development Experience:**
+   Daytona integrates directly with Visual Studio Code, providing a seamless and enhanced development experience. The `devcontainer.json` file ensures that all necessary extensions and settings are applied automatically.
 
-2. **Simplified Configuration:**
-   - Daytona’s `.devcontainer` approach abstracts much of the complexity involved in setting up and managing Docker configurations. It simplifies the setup by providing a structured and easy-to-understand configuration file that handles all aspects of the development environment.
+-  **Simplified Configuration:**
+   Daytona’s `.devcontainer` approach abstracts much of the complexity involved in setting up and managing Docker configurations. It simplifies the setup by providing a structured and easy-to-understand configuration file that handles all aspects of the development environment.
