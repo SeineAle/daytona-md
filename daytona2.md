@@ -7,8 +7,6 @@ Managing infrastructure to ensure smooth project delivery often involves overcom
 
 
 ### Technologies used
-`Daytona` and `Docker` are employed to automate development environment management. Node.js serves as the runtime environment for executing JavaScript code on the server side.
-
 
 #### Backend Libraries and Frameworks
 For the backend, `Express` provides a web framework for creating robust APIs, and `MongoDB` serves as a NoSQL database for efficient data storage and retrieval. `Mongoose` simplifies data modeling and validation for MongoDB, while `CORS` middleware enables Cross-Origin Resource Sharing for the backend API. The `Dotenv` module is used to load environment variables from a .env file into process.env, and Nodemon automatically restarts the Node.js application when file changes are detected.
@@ -21,7 +19,7 @@ On the frontend, `React` is used to build user interfaces, and `Recoil` manages 
 ### Setting up the project without Daytona
 
 
-In this section, we will set up this repository locally without Daytona.
+In this section, we will set up this repository locally.
 
 
 #### Step 1: Clone the Git Repository Locally
@@ -29,7 +27,8 @@ In this section, we will set up this repository locally without Daytona.
 ```bash
 git clone <repository_url>
 ```
-#### Step 2: Install Node.js
+#### Step 2: Install Node.js on your machine:
+Node.js is the javascript runtime 
 - To check if Node.js is installed, open a terminal or command prompt and run:
 ```bash
 node --version
@@ -79,29 +78,29 @@ npm run dev
 
 
 ### Problems with Conventional Setup
-
+In the previous section, we set up our app locally. Setting up our app locally seems straightforward in theory, but in practice, it can be highly inefficient for productivity. Challenges arise from conflicting dependencies and library versions: some require older Node.js versions, while others demand newer ones. Manually resolving these conflicts is time-consuming and risky, with potential impacts on other projects if global changes are made. Ensuring consistency across team members is also complex due to variations in operating systems and configurations. The major issues with conventional setup are:
 
 - **Dependency Management**: Traditional setups often face issues where different projects require conflicting versions of dependencies or libraries. Resolving these conflicts manually can be time-consuming and error-prone.<br><br>
 - **Time Consumption**: Setting up development environments manually can consume valuable time that developers could otherwise spend on actual coding and development tasks.<br><br>
 - **Collaboration Difficulties**: Maintaining consistency across team members' development environments can be challenging. Differences in operating systems, configurations, or installed software versions can lead to compatibility issues.
-
+-**Security Concerns**: Manual setups may overlook security best practices, such as isolated environments or secure configurations, increasing vulnerability risks.
 
 ### How Daytona Helps
 
-
-Daytona automates the entire process, addressing these issues effectively:
-
-
+Daytona automates the provisioning and configuration of development environments, ensuring that all project-specific dependencies, libraries, and tools are seamlessly set up. It integrates smoothly with leading IDEs such as Visual Studio Code and IntelliJ IDEA, supporting their extensions and plugins. This integration allows developers to work securely within their preferred environments. Daytona handles the entire setup process automatically, providing the following key features:
+- **Security**: Daytona creates a secure VPN connection between the client machine and the remote machine. All ports on the remote machine can be accessed securely without the need for manual port forwarding.<br><br>
 - **Automated Provisioning**: Daytona automates the provisioning and configuration of development environments. This includes setting up necessary dependencies, libraries, and tools based on project requirements, reducing the likelihood of conflicts and mismatches.<br><br>
 - **Seamless IDE Integration**: Daytona seamlessly integrates with popular integrated development environments (IDEs) such as Visual Studio Code and IntelliJ IDEA. Developers can securely connect to these IDEs and work within their familiar coding environments.<br><br>
-- **Easy Sharing and Collaboration with Cross-Platform Support**: Daytona enhances collaboration through robust cross-platform support, ensuring seamless sharing across team members and stakeholders. It accommodates diverse operating systems like Linux, macOS, and Windows, supporting both x86-64 and AArch64 architectures.
+- **Easy Sharing and Collaboration with Cross-Platform Support**: Daytona enhances collaboration through robust cross-platform support, ensuring seamless sharing across team members and stakeholders. It accommodates diverse operating systems like Linux, macOS, and Windows, supporting both x86-64 and AArch64 architectures.<br><br>
+- **Efficient Dependency Management**: Daytona resolves the complexities of dependency conflicts by automatically installing and managing versions. This capability streamlines development workflows, saving time and reducing potential errors associated with manual resolution of dependency conflicts.
 ### Setting up the project using Daytona
 
+Having already set up the MERN repository locally manually and discussed the issues it caused, let's delve into how Daytona simplifies the development process, enhancing efficiency from initiation to collaboration. Prepare to streamline your workflow and boost team productivity!
 
-#### Step 1: Install Daytona
-Daytona’s functionality is exposed through a command-line tool that runs on Linux, macOS, and Windows systems on both x86-64 and AArch64 architectures.
+#### Step 1: Installing Daytona cli locally on your machine
+Daytona’s functionality is exposed via a versatile command-line tool compatible with Linux, macOS, and Windows operating systems and supports both x86-64 and AArch64 architectures.
+
   Pre-requisites: Ensure Docker is installed and running.
-
 
 ##### For Windows
 - Run the following script in PowerShell:
@@ -157,7 +156,6 @@ daytona create
 <br>![image1](images/image10.png)<br>
 #### Step 6: Set a Preferred IDE and Open the Workspace
 
-
 - To set up your preferred IDE, list all supported IDEs using the following command and select from them. For this guide, we will use Visual Studio Code.<br>
 ```sh
 daytona ide
@@ -173,9 +171,9 @@ daytona code
 
 
 #### Step 8: Start the Development Servers
+With all dependencies installed, you're ready to start your development servers. Navigate to the backend and frontend directories, configure environment variables as needed, and execute `npm run dev` to kickstart your development environment. This command ensures both backend and frontend components are up and running smoothly.
 
-
-**Backend**
+<!-- **Backend**
 - Navigate to the backend directory and create a `.env` file in the `backend` directory and add the following line:
 ```
 MONGO_URI="Your Database Connection String"
@@ -192,11 +190,10 @@ VITE_BACKEND_URL="http://localhost:8000/api/customers/"
 - Execute the following command to start the frontend server:
 ```sh
 npm run dev
-```
+``` -->
 
 
 ### How Daytona Simplifies Development Environments
-
 
 Daytona streamlines the process of setting up development environments by leveraging a `.devcontainer` folder. This folder contains configuration files that ensure all necessary dependencies and plugins are installed and configured correctly, providing a consistent and hassle-free setup.
 
@@ -281,5 +278,9 @@ By leveraging the `.devcontainer` folder and `devcontainer.json`, developers can
 
 
 ### Conclusion
-By following this guide, you have learned to set up a MERN stack project both with and without Daytona. The conventional method often faces challenges such as dependency management, time consumption, and collaboration difficulties. Daytona simplifies this process through automated provisioning, seamless IDE integration, and robust cross-platform support. By automating environment setup, Daytona ensures consistency, streamlines workflows, and improves collaboration. Embracing Daytona for development environment management reduces setup time, minimizes errors, and enhances productivity.
+Within minutes, Daytona enabled us to set up a ready-to-code environment for an unfamiliar project without altering our default local development setup. All necessary installations and configurations were handled automatically.
+
+We were able to run the site locally, utilize our favorite tools like VS Code, and seamlessly collaborate with our teammates.
+
+Development automation with Daytona simplifies onboarding, ensures consistency, and accelerates feedback cycles. Try Daytona for your next project!
 
